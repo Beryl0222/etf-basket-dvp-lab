@@ -1,0 +1,4 @@
+fill,fund,asset,side,qty,price,fee,at
+H1,FXI,V,buy,31,12.67,3.01,2026-06-16T01:30:00Z
+H2,FXI,V,buy,9,12.55,0.89,2026-06-16T01:45:00Z
+H3,FXI,V,sell,20,12.40,1.30,2026-06-17T03:01:00Z

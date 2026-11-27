@@ -1,0 +1,5 @@
+revision,fund,day,known,shares,asset,units,create_rule,redeem_rule,ref_price,premium
+D1,FXI,2026-06-15,2026-06-15T00:30:00Z,500,U,40,in_kind,in_kind,8,0.10
+D1,FXI,2026-06-15,2026-06-15T00:30:00Z,500,V,20,optional,in_kind,12,0.15
+D2,FXI,2026-06-15,2026-06-15T03:30:00Z,500,U,45,in_kind,in_kind,8,0.10
+D2,FXI,2026-06-15,2026-06-15T03:30:00Z,500,V,20,cash,optional,13,0.14
