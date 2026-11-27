@@ -1,3 +1,4 @@
 day,fund,asset,at,can_trade,per_order_cash,fund_cash
 2026-06-15,FXI,ALL,2026-06-15T00:00:00Z,yes,400,900
 2026-06-15,FXI,V,2026-06-15T00:40:00Z,no,,
+2026-06-16,FXI,V,2026-06-16T01:15:00Z,yes,,
