@@ -11,7 +11,7 @@ FIELDS = {
     'orders': ['order', 'agent', 'time', 'side', 'revision', 'baskets', 'requested_cash'],
     'vault_open': ['owner', 'asset', 'units'],
     'venue_restrictions': ['day', 'fund', 'asset', 'at', 'can_trade', 'per_order_cash', 'fund_cash'],
-    'custody': ['id', 'order', 'asset', 'direction', 'status', 'qty', 'at'],
+    'custody': ['id', 'order', 'asset', 'direction', 'status', 'qty', 'at', 'purpose'],
     'hedge_fills': ['fill', 'fund', 'asset', 'side', 'qty', 'price', 'fee', 'at'],
 }
 
@@ -36,6 +36,9 @@ class InputBundleTest(unittest.TestCase):
         self.assertLess(orders['M3']['time'], custody['K5']['at'])
         self.assertGreater(orders['M5']['time'], custody['K5']['at'])
         self.assertLess(int(fills['H1']['qty']), 2 * 20)
+        self.assertEqual(custody['K11']['order'], custody['K14']['order'])
+        self.assertLess(custody['K11']['at'], custody['K12']['at'])
+        self.assertLess(custody['K12']['at'], custody['K14']['at'])
 
 
 if __name__ == "__main__":
