@@ -11,6 +11,7 @@ FIELDS = {
     'orders': ['order', 'agent', 'time', 'side', 'revision', 'baskets', 'requested_cash'],
     'vault_open': ['owner', 'asset', 'units'],
     'venue_restrictions': ['day', 'fund', 'asset', 'at', 'can_trade', 'per_order_cash', 'fund_cash'],
+    'cancellations': ['id', 'order', 'agent', 'at'],
     'custody': ['id', 'order', 'asset', 'direction', 'status', 'qty', 'at', 'purpose'],
     'hedge_fills': ['fill', 'fund', 'asset', 'side', 'qty', 'price', 'fee', 'at'],
 }
@@ -33,6 +34,14 @@ class InputBundleTest(unittest.TestCase):
         custody = {row['id']: row for row in records}
         _, records = read_table(DATA, 'hedge_fills')
         fills = {row['fill']: row for row in records}
+        _, cancellations = read_table(DATA, 'cancellations')
+        cancel = cancellations[0]
+        self.assertEqual(cancel['agent'], orders[cancel['order']]['agent'])
+        self.assertEqual(cancel['order'], custody['K15']['order'])
+        self.assertEqual(cancel['order'], custody['K16']['order'])
+        self.assertLess(custody['K15']['at'], cancel['at'])
+        self.assertLess(cancel['at'], orders['M2']['time'])
+        self.assertLess(orders['M2']['time'], custody['K16']['at'])
         self.assertLess(orders['M3']['time'], custody['K5']['at'])
         self.assertGreater(orders['M5']['time'], custody['K5']['at'])
         self.assertLess(int(fills['H1']['qty']), 2 * 20)

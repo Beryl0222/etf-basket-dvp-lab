@@ -13,3 +13,5 @@ K11,M1,CASH,out,rejected,20.66,2026-06-16T03:00:00Z,cash_difference
 K12,M2,CASH,out,confirmed,21.72,2026-06-16T03:05:00Z,cash_difference
 K13,M5,CASH,in,confirmed,49.70,2026-06-17T03:08:00Z,cash_difference
 K14,M1,CASH,out,confirmed,20.66,2026-06-17T03:15:00Z,cash_difference
+K15,M6,U,in,confirmed,10,2026-06-15T01:14:00Z,principal
+K16,M6,U,out,confirmed,10,2026-06-15T02:12:00Z,return
